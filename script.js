@@ -287,15 +287,14 @@ function showDetailView(id) {
         this.onerror = null;
     };
 
-    // Switch views
-    searchView.classList.add('hidden');
+    // Show Overlay and Lock Scroll
     detailView.classList.remove('hidden');
-    window.scrollTo(0, 0);
+    document.body.classList.add('modal-open');
 }
 
 function hideDetailView() {
     detailView.classList.add('hidden');
-    searchView.classList.remove('hidden');
+    document.body.classList.remove('modal-open');
     renderRecentlyViewed();
     renderPlants();
 }
@@ -323,6 +322,13 @@ function setupEventListeners() {
     });
 
     backBtn.addEventListener('click', hideDetailView);
+
+    // Close overlay when clicking outside the tab container
+    detailView.addEventListener('click', (e) => {
+        if (e.target === detailView) {
+            hideDetailView();
+        }
+    });
 
     switchRoleBtn.addEventListener('click', () => {
         if (currentRole === 'user') {

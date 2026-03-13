@@ -51,24 +51,29 @@
             </section>
         </section>
 
-        <!-- Specific Plant Detail View (Simulated Tab) -->
-        <section id="detailView" class="hidden">
-            <button id="backBtn" class="btn btn-secondary" style="margin-bottom: 20px;">&larr; Back to Search</button>
-            <div class="detail-container">
-                <div class="detail-image">
-                    <img id="detailImg" src="" alt="Plant Image">
+        <!-- Specific Plant Detail Overlay (Simulated Tab with Blur) -->
+        <div id="detailView" class="detail-overlay hidden">
+            <div class="detail-modal-tab">
+                <div class="detail-modal-header">
+                    <button id="backBtn" class="btn btn-secondary">&larr; Go back to search</button>
+                    <span class="detail-close-icon" onclick="hideDetailView()">&times;</span>
                 </div>
-                <div class="detail-content">
-                    <span id="detailCategory" class="plant-category"></span>
-                    <h2 id="detailName" class="copyable" title="Click to copy" onclick="copyText(this.textContent, event)"></h2>
-                    <span id="detailScientific" class="scientific-name copyable" style="font-size: 1.2rem; margin-bottom: 20px;" title="Click to copy" onclick="copyText(this.textContent, event)"></span>
-                    <div class="detail-uses-box">
-                        <h3>Primary Uses & Benefits</h3>
-                        <p id="detailUses"></p>
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img id="detailImg" src="" alt="Plant Image">
+                    </div>
+                    <div class="detail-content">
+                        <span id="detailCategory" class="plant-category"></span>
+                        <h2 id="detailName" class="copyable" title="Click to copy" onclick="copyText(this.textContent, event)"></h2>
+                        <span id="detailScientific" class="scientific-name copyable" style="font-size: 1.2rem; margin-bottom: 20px;" title="Click to copy" onclick="copyText(this.textContent, event)"></span>
+                        <div class="detail-uses-box">
+                            <h3>Primary Uses & Benefits</h3>
+                            <p id="detailUses"></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <!-- Modal for Add/Edit Plant -->

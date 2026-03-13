@@ -259,39 +259,109 @@ header {
     border-radius: 4px; font-family: inherit;
 }
 
-/* Detail View Styling */
-.detail-container {
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius);
+/* Detail Overlay & Blur View */
+.detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent white */
+    backdrop-filter: blur(12px); /* Blur effect for everything underneath */
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.detail-modal-tab {
+    background-color: var(--white);
+    height: 85vh; /* Even space top and bottom */
+    width: calc(85vh * 4 / 5); /* 4:5 Aspect Ratio */
+    border-radius: 15px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 400px;
+    animation: slideUp 0.4s ease-out;
+    margin: auto; /* Centered vertically and horizontally */
 }
 
-.detail-image {
-    background-color: #e0e0e0;
-    display: flex; align-items: center; justify-content: center;
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.detail-modal-header {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    flex-shrink: 0;
+}
+
+.detail-close-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #999;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.detail-close-icon:hover {
+    color: var(--primary-color);
+}
+
+.detail-overlay.hidden {
+    display: none;
+}
+
+body.modal-open {
+    overflow: hidden; /* Prevent scrolling background */
+}
+
+/* Detail Container tweaks for overlay */
+.detail-modal-tab .detail-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; /* Stack image and content vertically */
+    overflow-y: auto;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.detail-modal-tab .detail-image {
+    width: 100%;
+    height: 50%; /* Image takes 1/2 (50%) of the top part */
+    flex-shrink: 0;
     overflow: hidden;
 }
 
-.detail-image img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.5s ease;
+.detail-modal-tab .detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.detail-content {
-    padding: 40px; display: flex; flex-direction: column;
+.detail-modal-tab .detail-content {
+    padding: 25px;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
-.detail-uses-box {
-    margin-top: 30px; padding: 20px;
-    background-color: #f0f4ef; border-left: 4px solid var(--primary-color);
-    border-radius: 4px;
+@media (max-width: 900px) {
+    .detail-modal-tab .detail-container {
+        grid-template-columns: 1fr;
+    }
+    .detail-modal-tab .detail-image {
+        min-height: 300px;
+    }
 }
-
-.detail-uses-box h3 { margin-bottom: 10px; font-size: 1.2rem; }
 
 /* Copy Functionality Styles */
 .copyable {
