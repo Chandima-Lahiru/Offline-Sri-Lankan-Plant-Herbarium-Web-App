@@ -177,7 +177,7 @@ function renderPlants() {
 
 function createPlantCard(plant, isSmall = false) {
     const card = document.createElement('div');
-    // Add admin-card class for taller cards in admin mode
+    // Add admin-card class for taller cards in admin mode to accommodate buttons
     card.className = `plant-card clickable-card ${currentRole === 'admin' && !isSmall ? 'admin-card' : ''}`;
     
     card.onclick = (e) => {
@@ -332,10 +332,18 @@ function setupEventListeners() {
 
     switchRoleBtn.addEventListener('click', () => {
         if (currentRole === 'user') {
-            currentRole = 'admin';
-            switchRoleBtn.textContent = 'Switch to User';
-            roleLabel.textContent = 'Admin View';
-            adminControls.classList.remove('hidden');
+            const user = prompt("Enter Username:");
+            const pass = prompt("Enter Password:");
+            
+            if (user === "admin" && pass === "admin") {
+                currentRole = 'admin';
+                switchRoleBtn.textContent = 'Switch to User';
+                roleLabel.textContent = 'Admin View';
+                adminControls.classList.remove('hidden');
+                alert("Logged in as Admin");
+            } else {
+                alert("Invalid Credentials");
+            }
         } else {
             currentRole = 'user';
             switchRoleBtn.textContent = 'Switch to Admin';
@@ -379,12 +387,21 @@ function savePlant() {
     const category = document.getElementById('plantCategory').value;
 
     if (id) {
+        // Edit existing
         const index = plants.findIndex(p => p.id == id);
         if (index !== -1) {
             plants[index] = { ...plants[index], name, scientificName, imageUrl, uses, category };
         }
     } else {
-        const newPlant = { id: Date.now(), name, scientificName, imageUrl, uses, category };
+        // Add new
+        const newPlant = {
+            id: Date.now(),
+            name,
+            scientificName,
+            imageUrl,
+            uses,
+            category
+        };
         plants.push(newPlant);
     }
 
@@ -420,3 +437,5 @@ init();
 window.openEditModal = openEditModal;
 window.deletePlant = deletePlant;
 window.savePlant = savePlant;
+window.hideDetailView = hideDetailView;
+window.copyText = copyText;

@@ -53,14 +53,14 @@
 
         <!-- Specific Plant Detail Overlay (Simulated Tab with Blur) -->
         <div id="detailView" class="detail-overlay hidden">
-            <div class="detail-modal-tab">
+            <div class="detail-modal-tab" id="captureCard">
                 <div class="detail-modal-header">
                     <button id="backBtn" class="btn btn-secondary">&larr; Go back to search</button>
                     <span class="detail-close-icon" onclick="hideDetailView()">&times;</span>
                 </div>
                 <div class="detail-container">
                     <div class="detail-image">
-                        <img id="detailImg" src="" alt="Plant Image">
+                        <img id="detailImg" src="" alt="Plant Image" crossorigin="anonymous">
                     </div>
                     <div class="detail-content">
                         <span id="detailCategory" class="plant-category"></span>
