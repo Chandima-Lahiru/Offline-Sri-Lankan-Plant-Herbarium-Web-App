@@ -129,6 +129,7 @@ const detailUses = document.getElementById('detailUses');
 
 const plantGrid = document.getElementById('plantGrid');
 const searchInput = document.getElementById('searchInput');
+const clearSearchBtn = document.getElementById('clearSearchBtn');
 const switchRoleBtn = document.getElementById('switchRoleBtn');
 const roleLabel = document.getElementById('roleLabel');
 const adminControls = document.getElementById('adminControls');
@@ -262,9 +263,11 @@ function showDetailView(id) {
     const plant = plants.find(p => p.id == id);
     if (!plant) return;
 
-    // Add to recently viewed
-    recentlyViewed = [id, ...recentlyViewed.filter(recentId => recentId !== id)].slice(0, 8);
-    localStorage.setItem('herbarium_recent', JSON.stringify(recentlyViewed));
+    // Only add to recently viewed if in user mode
+    if (currentRole === 'user') {
+        recentlyViewed = [id, ...recentlyViewed.filter(recentId => recentId !== id)].slice(0, 8);
+        localStorage.setItem('herbarium_recent', JSON.stringify(recentlyViewed));
+    }
 
     // Populate details
     detailName.textContent = plant.name;
@@ -302,8 +305,25 @@ function hideDetailView() {
 function setupEventListeners() {
     searchInput.addEventListener('input', () => {
         isViewingAll = false; // Reset view all on typing
+        
+        // Show/hide clear button
+        if (searchInput.value.length > 0) {
+            clearSearchBtn.style.display = 'block';
+        } else {
+            clearSearchBtn.style.display = 'none';
+        }
+        
         renderPlants();
         renderRecentlyViewed();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        clearSearchBtn.style.display = 'none';
+        isViewingAll = false;
+        renderPlants();
+        renderRecentlyViewed();
+        searchInput.focus();
     });
 
     viewAllBtn.addEventListener('click', () => {

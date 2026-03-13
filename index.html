@@ -25,7 +25,10 @@
     <main class="container">
         <section id="searchView">
             <section class="search-section">
-                <input type="text" id="searchInput" placeholder="Search by name or scientific name (e.g., Beli, Kohomba)...">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search by name or scientific name (e.g., Beli, Kohomba)...">
+                    <button id="clearSearchBtn" class="clear-btn" title="Clear search">&times;</button>
+                </div>
                 <div class="admin-actions hidden" id="adminControls">
                     <button id="addPlantBtn" class="btn btn-primary">Add New Plant</button>
                     <button id="viewAllBtn" class="btn btn-secondary">View All Plants Library</button>
