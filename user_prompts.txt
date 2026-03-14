@@ -1,0 +1,27 @@
+1. create a Local Plant Dictionary (Herbarium) Search tool for Sri Lankan plants with scientific names and uses.use html,css,javascript.There should be facilities to serach plants, adding new plants and editing and deletig exciting data.use matching theme as well.And also normal user can ony available search function and admin user should have acces to all.
+2. add details about 100 more plants in sri lanka
+3. don't show all the plant data on the screen, show only plants when user typing the name of the plants and use a arial type front
+4. after user searching the plant name he should able to go into that specific tab and see the details with a clear pictue of that plant
+5. no images are showing, add a new feature in edit menu to inser pictues, picture should automatically fit in to its showin area
+6. add a view all button in admin view and show recently clicked plants card in user view under the search bar.maximum 8 card can be showed in two rows under the serach bar as recents.
+7. in plant card, the plant name and it's scientific name should be able to copy by just clicking on it
+8. add a clear option to clear the recently viewed cards and when user hovers over the plant name and scientific name, instead of underline it make it highlighted when he copies it
+9. in plant cards, The category, plant name, plant scientific name should be in three sepearate lines and the space between them should be eqal (1.5)
+10. the highlights on category name and hovering names should not be exceed the lenght of the text.
+11. make the view mode of palant card bit smaller and smart view, like after user clicking on a pland card it should open on the blured screen
+12. reverse to the previous changes
+13. the plant image should be in the top half of the plant card and the rest details must one another half + 1/4 part.
+14. devide the plant card in to two parts and the image must be on the top part and the category, plant name, scientific name and use details must one the other part.the second part must be bit longer than the first part and the image should fit on its allocated space well
+15. add primary uses and benefits on the plant card and reduce it's height a bit
+16. change the plant cards on recent list just like above described and add a bit more hight to all plant cards in admin mode
+17. after user clicked on his relevent result plant card it should open in a new tab while the rest under it being a blur bit.user can either close that window or click on go back to search to go back.
+18. the opend plant card must be 4:5 ratio and the image on it shouldn't have more than half of its space in it
+19. the opened plant tab should be in 9:16 ratio but it must not fully fit into screen on top and bottom, On top and bottom there must be a evenly space. and the image on the plant card should only have 1/4 of top part of the card
+20. expand the opened plant card's width by 3px and after that the final output should match 12:16 ratio while keeping it's top and bottom as same level
+21. now change the opened plant cards resolution to 4:5 while keeping it's top and bottom same level as now.The image one the opend plant card can have half of the card's space.
+22. when user clicked on a plant card and go into it, a download button should appera right next to the opend plant card to take a snapshot of the plantcard and download it.after clicking the download button a png file of that opend plant card's snaptshot must download in 9:16 ratio and a text animation must appear which says "Plant card downloaded" and it should fade away in 3-4 seconds
+23. remove the download function
+24. the admin view isn't working, please fix it, in admin view you can add new plant cards, edit exciting plant cards, adding images to plant cards and view all plant cards by just clicking view all.user can switch between user mode and admin mode by just entering "admin" as youser name and password
+25. add a clear button on the searchbar in both user mode and admin mode to clear the texts in the searchbar
+26. some plants could belongs to one ore more categories so instead of adding one cetegory change that in to add more than one category into a plant card.each category should be highlighted in differente colour while keeping the matching with theme.
+27. create a text file and add all the prompts that I have given you change more than one category to be add in edit mode
